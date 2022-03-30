@@ -31,27 +31,27 @@ lio_sam:
   lidarMaxRange: 1000.0                       # default: 1000.0, maximum lidar range to be used
 
   # IMU Settings
-  imuAccNoise: 0.001
-  imuGyrNoise: 0.001
-  imuAccBiasN: 6.4356659353532566e-05
-  imuGyrBiasN: 3.5640318696367613e-05
+  imuAccNoise: 6.1-04
+  imuGyrNoise: 0.015
+  imuAccBiasN: 0.02
+  imuGyrBiasN: 2.0
   imuGravity: 9.80511
   imuRPYWeight: 0.01
 
   # Extrinsics (lidar -> IMU)
-  extrinsicTrans: [-0.391, -0.24, -0.02]
-  #extrinsicRot: [-1, 0, 0,
-  #                0, 1, 0,
-  #                0, 0, -1]
-  #extrinsicRPY: [0,  1, 0,
-  #               -1, 0, 0,
-  #                0, 0, 1]
-  extrinsicRot: [0.981977, -0.18722, 0.0219547,
-                   0.187463, 0.982182, 0.0132502,
-                   -0.0240508, -0.00889567, 0.999671]
-  extrinsicRPY: [0.9819739, -0.1876034, 0.0230714,
-                   0.1873900, 0.9822228, 0.0111065,
-                   -0.0247449, -0.0065829, 0.9996721]
+  extrinsicTrans: [-0.391, -0.14, -0.02]
+  extrinsicRot: [1, 0, 0,
+                  0, 1, 0,
+                  0, 0, 1]
+  extrinsicRPY: [1,  0, 0,
+                 0, 1, 0,
+                  0, 0, 1]
+#  extrinsicRot: [0.981977, -0.18722, 0.0219547,
+#                   0.187463, 0.982182, 0.0132502,
+#                   -0.0240508, -0.00889567, 0.999671]
+#  extrinsicRPY: [0.9819739, -0.1876034, 0.0230714,
+#                   0.1873900, 0.9822228, 0.0111065,
+#                   -0.0247449, -0.0065829, 0.9996721]
 
   # LOAM feature threshold
   edgeThreshold: 1.0
@@ -60,9 +60,9 @@ lio_sam:
   surfFeatureMinValidNum: 100
 
   # voxel filter paprams
-  odometrySurfLeafSize: 0.2                     # default: 0.4 - outdoor, 0.2 - indoor
+  odometrySurfLeafSize: 0.1                     # default: 0.4 - outdoor, 0.2 - indoor
   mappingCornerLeafSize: 0.1                    # default: 0.2 - outdoor, 0.1 - indoor
-  mappingSurfLeafSize: 0.2                      # default: 0.4 - outdoor, 0.2 - indoor
+  mappingSurfLeafSize: 0.1                      # default: 0.4 - outdoor, 0.2 - indoor
 
   # robot motion constraint (in case you are using a 2D robot)
   z_tollerance: 1000                            # meters
@@ -70,7 +70,7 @@ lio_sam:
 
   # CPU Params
   numberOfCores: 8                              # number of cores for mapping optimization
-  mappingProcessInterval: 0.15                  # seconds, regulate mapping frequency
+  mappingProcessInterval: 0.35                  # seconds, regulate mapping frequency
 
   # Surrounding map
   surroundingkeyframeAddingDistThreshold: 1.0   # meters, regulate keyframe adding threshold
@@ -116,7 +116,7 @@ ekf_gps:
   world_frame: odom
 
   frequency: 50
-  two_d_mode: false
+  two_d_mode: true
   sensor_timeout: 0.01
   # -------------------------------------
   # External IMU:
